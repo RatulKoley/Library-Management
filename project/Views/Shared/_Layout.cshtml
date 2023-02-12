@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Library Website Somewhere</title> @*Page Title*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Session["UserName"] != null)
+                    {
+                        if (Session["Admin"] == "Admin")
+                        {
+                            <li style="font-size:17px;">@Html.ActionLink("Admin", "Index", "Admin")</li>
+                        }
+                            <li style="font-size:17px;">@Html.ActionLink("Books", "BookView", "Borrow")</li>
+                            <li style="font-size: 17px;">@Html.ActionLink("Logout", "Logout", "Customer")</li>
+                            <li><p style="color:darkgreen;padding-top:14px; padding-left:50px; font-weight:bold; font-size:18px;">Welcome @Session["UserName"]</p></li>
+                        }
+                        else
+                        {
+
+                            <li style="font-size: 17px;">@Html.ActionLink("Login", "Login", "Customer")</li>
+                        }
+                    </ul>
+               
+                <form class="form-inline my-2 my-lg-0" style="text-align:right; margin-top:8px;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Library Website</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

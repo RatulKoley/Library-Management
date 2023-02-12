@@ -1,0 +1,69 @@
+﻿@model IEnumerable<project.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<body style="background-color: #778899; ">
+    <h2 style="font-weight: 700; color: #003300; ">Customer List</h2>
+
+    <p style="font-size: 15px; font-weight: 600; background-color: #ffffcc; padding: 8px; margin-left: 20px; margin-right: 1006px; padding-top: 3px; padding-bottom: 3px; border: 1px solid black;">
+        @Html.ActionLink("Register New", "Create")
+    </p>
+    <table class="table" border="4px" bordercolor="black" style="background-color: #e6f9ff; ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admin)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Admin)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Edit", new { id = item.Customer_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Customer_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Customer_ID }) |
+                    @Html.ActionLink("History", "History", new { id = item.Customer_ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</br></br>

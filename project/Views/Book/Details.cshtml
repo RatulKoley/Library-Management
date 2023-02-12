@@ -1,0 +1,64 @@
+﻿@model project.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<body style="background-color: #778899; ">
+    <h2 style="font-weight: 700; color: #003300; ">Book Details</h2>
+
+    <div class="form-horizontal" style="background-color: #e6f9ff; margin-right: 730px; margin-left: 50px; padding-bottom: 5px; border: 2px solid black; ">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Book_ID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Book_ID)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Book_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Book_Name)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Book_Author)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Book_Author)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Added)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Added)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Available_Books)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Available_Books)
+            </dd>
+
+        </dl>
+    </div>
+    </br>
+    <p style="font-size: 15px; font-weight: 600; background-color: #ffffcc; padding: 8px; margin-left: 20px; margin-right: 1054px; padding-top: 3px; padding-bottom: 3px; border: 1px solid black;">
+        @Html.ActionLink("Update", "Edit", new { id = Model.Book_ID })
+    </p>
+    <p style="font-size: 15px; font-weight: 600; background-color: #ffffcc; padding: 8px; margin-left: 20px; margin-right: 1067px; padding-top: 3px; padding-bottom: 3px; border: 1px solid black;">
+        @Html.ActionLink("Back", "Index")
+    </p>
+    </br>
+    </br>
+</body>

@@ -1,0 +1,70 @@
+﻿@model project.Models.Borrow
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<body style="background-color: #778899; ">
+    @*#F0FFF0*@
+    <h2 style="font-weight: 700; color: #003300; ">Delete History</h2>
+    <div class="form-horizontal" style="background-color: #e6f9ff; margin-right: 730px; margin-left: 50px; border: 2px solid black; ">
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Book_Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Book_Name)
+                </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Book_ID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Book_ID)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_ID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_ID)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Borrow_Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Borrow_Date)
+            </dd>
+            </br>
+            <dt>
+                @Html.DisplayNameFor(model => model.Return_Date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Return_Date)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color" style="margin-left: 180px; padding-bottom: 15px;">
+                <input type="submit" value="Delete" class="btn btn-default btn-danger" />
+            </div>
+        }
+    </div>
+    </br>
+    <div style="font-size: 15px; font-weight:600; background-color: #ffffcc; padding: 8px; margin-left: 20px; margin-right: 1067px; padding-top:3px; padding-bottom:3px; border: 1px solid black;">
+        @Html.ActionLink("Back", "Index")
+    </div>
+    </br></br>
+
+</body>

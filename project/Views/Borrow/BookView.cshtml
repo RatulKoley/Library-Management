@@ -1,0 +1,65 @@
+﻿@model IEnumerable<project.Models.Book>
+
+@{
+    ViewBag.Title = "BookView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="background-color: #778899; ">
+    <h2 style="font-weight: 700; color: #003300; ">Borrow Book Here</h2>
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+<table class="table" border="4px" bordercolor="black" style="background-color: #e6f9ff; ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available_Books)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book_Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Added)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available_Books)
+            </td>
+            <td>
+                @Html.ActionLink("Borrow", "Borrow", new {  id=item.Book_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-2">
+            <label class="label-success">@ViewBag.Message</label>
+        </div>
+    </div>
+    </body>
+</br>
+</br>
